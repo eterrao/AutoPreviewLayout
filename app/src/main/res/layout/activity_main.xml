@@ -1,23 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="com.welove.welove520.autopreviewlayout.MainActivity">
 
-
-    <FrameLayout
-        android:id="@+id/fl_preview_container"
+    <ScrollView
+        android:id="@+id/sv_preview"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@color/colorPrimary">
+        android:scrollbars="none">
 
-        <ImageView
-            android:id="@+id/iv_preview"
+        <HorizontalScrollView
+            android:id="@+id/hsv_preview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-    </FrameLayout>
+            android:layout_height="180dp"
+            android:scrollbars="none">
 
-</android.support.constraint.ConstraintLayout>
+            <RelativeLayout
+                android:id="@+id/fl_preview_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_preview_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/timeline_top_image_1"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+
+    <Button
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/transition"
+        android:onClick="startAnimation"
+        android:shadowColor="#821934"
+        android:shadowRadius="20"
+        android:text="start animation" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:shadowColor="@color/colorPrimary"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="12345" />
+
+</RelativeLayout>
