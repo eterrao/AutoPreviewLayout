@@ -51,13 +51,9 @@ public class MainActivity extends AppCompatActivity {
     private void doScrollAnimation(final ImageView animationView, final float direction) {
         animationView.setVisibility(View.VISIBLE);
         animationView.setImageResource(getImgResourceId());
-//        ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(animationView, "scaleX", 1f, 1.5f);
-//        ObjectAnimator scaleYAnim = ObjectAnimator.ofFloat(animationView, "scaleY", 1f, 1.5f);
         final ObjectAnimator translateAnim = ObjectAnimator.ofFloat(animationView, "translationY", 0, direction);
         ObjectAnimator alphaIn = ObjectAnimator.ofFloat(animationView, "alpha", 0.2f, 1f);
         ObjectAnimator alphaOut = ObjectAnimator.ofFloat(animationView, "alpha", 1f, 0);
-//        scaleXAnim.setDuration(ANIMATION_DURATION_MS);
-//        scaleYAnim.setDuration(ANIMATION_DURATION_MS);
         translateAnim.setDuration(ANIMATION_DURATION_MS);
         alphaIn.setDuration(FADE_DURATION);
         alphaOut.setDuration(FADE_DURATION);

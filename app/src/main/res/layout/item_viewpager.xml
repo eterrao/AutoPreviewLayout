@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/sv_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <HorizontalScrollView
+            android:id="@+id/sv_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/timeline_top_image_1" />
+        </HorizontalScrollView>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

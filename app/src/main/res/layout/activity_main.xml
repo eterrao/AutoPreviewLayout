@@ -10,12 +10,14 @@
         android:id="@+id/sv_preview"
         android:layout_width="match_parent"
         android:layout_height="180dp"
+        android:overScrollMode="never"
         android:scrollbars="none">
 
         <HorizontalScrollView
             android:id="@+id/hsv_preview"
             android:layout_width="match_parent"
             android:layout_height="180dp"
+            android:overScrollMode="never"
             android:scrollbars="none">
 
             <RelativeLayout
