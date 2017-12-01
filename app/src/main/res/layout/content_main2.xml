@@ -8,9 +8,10 @@
     tools:context="com.welove.welove520.autopreviewlayout.Main2Activity"
     tools:showIn="@layout/activity_main2">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_preview"
+    <com.welove.welove520.autopreviewlayout.banner.Banner
+        android:id="@+id/banner_preview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="180dp">
 
+    </com.welove.welove520.autopreviewlayout.banner.Banner>
 </android.support.constraint.ConstraintLayout>

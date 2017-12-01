@@ -3,10 +3,10 @@ package com.welove.welove520.autopreviewlayout;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -26,6 +26,7 @@ import butterknife.Unbinder;
 
 public class AnimFragment extends Fragment {
 
+    private static final String TAG = AnimFragment.class.getSimpleName();
     @BindView(R.id.iv_image)
     ImageView ivImage;
     @BindView(R.id.sv_horizontal)
@@ -48,15 +49,11 @@ public class AnimFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(container.getContext(), R.layout.item_viewpager, null);
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.item_viewpager, container, false);
         unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         initView();
+        return view;
     }
 
     private void initView() {
@@ -82,5 +79,18 @@ public class AnimFragment extends Fragment {
     }
 
     public void startScrollAnimation() {
+//        for (int i = 0; i < svVertical.getChildCount(); i++) {
+//            Log.e(TAG, "vertical  child =  " + svVertical.getChildAt(0).getClass().getSimpleName());
+//        }
+//        for (int i = 0; i < svHorizontal.getChildCount(); i++) {
+//            Log.e(TAG, "horizontal child =  " + svHorizontal.getChildAt(0).getClass().getSimpleName());
+//        }
+//        if (svVertical.getChildAt(0) instanceof HorizontalScrollView) {
+        svVertical.smoothScrollTo(0, ivImage.getHeight());
+//        }
+//        if (svHorizontal.getChildAt(0) instanceof ImageView) {
+        svHorizontal.smoothScrollTo(ivImage.getWidth(), 0);
+//        }
+//        ObjectAnimator translationY = ObjectAnimator.ofFloat(ivImage, "translationY",)
     }
 }
