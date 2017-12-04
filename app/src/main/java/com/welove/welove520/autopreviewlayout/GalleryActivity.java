@@ -75,6 +75,9 @@ public class GalleryActivity extends AppCompatActivity {
 //
 //            }
 //        });
+        ivFront.setImageResource(photoList.get((new Random()).nextInt(3)).getResourceId());
+        ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(ivFront, "alpha", 0, 1)
+                .setDuration(2000);
         ObjectAnimator translateY = ObjectAnimator.ofFloat(ivFront, "translationY", 0, -dip2px(320) * 0.3f)
                 .setDuration(7000);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivFront, "scaleX", 1, 1.8f)
@@ -87,7 +90,6 @@ public class GalleryActivity extends AppCompatActivity {
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                ivFront.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -95,8 +97,7 @@ public class GalleryActivity extends AppCompatActivity {
                 startFrontAlphaOutAnimation();
             }
         });
-        animatorSet.play(translateY).with(scaleX).with(scaleY);
-        ivFront.setImageResource(photoList.get((new Random()).nextInt(3)).getResourceId());
+        animatorSet.play(translateY).with(scaleX).with(scaleY).with(alphaAnimator);
 //        ivFront.startAnimation(animation);
         animatorSet.start();
         ivBack.bringToFront();
@@ -121,8 +122,10 @@ public class GalleryActivity extends AppCompatActivity {
 //
 //            }
 //        });
-
+        ivBack.setVisibility(View.VISIBLE);
         ivBack.setImageResource(photoList.get((new Random()).nextInt(3)).getResourceId());
+        ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(ivBack, "alpha", 0, 1)
+                .setDuration(2000);
         ObjectAnimator translateY = ObjectAnimator.ofFloat(ivBack, "translationY", -dip2px(320) * 0.3f, dip2px(320) * 0.3f)
                 .setDuration(7000);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(ivBack, "scaleX", 1, 1.8f)
@@ -135,7 +138,6 @@ public class GalleryActivity extends AppCompatActivity {
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                ivBack.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -143,7 +145,7 @@ public class GalleryActivity extends AppCompatActivity {
                 startBackAlphaOutAnimation();
             }
         });
-        animatorSet.play(translateY).with(scaleX).with(scaleY);
+        animatorSet.play(translateY).with(scaleX).with(scaleY).with(alphaAnimator);
         animatorSet.start();
 //        ivBack.startAnimation(animation);
         ivFront.bringToFront();
@@ -175,7 +177,7 @@ public class GalleryActivity extends AppCompatActivity {
         alphaAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                ivFront.setVisibility(View.INVISIBLE);
+//                ivFront.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -212,7 +214,7 @@ public class GalleryActivity extends AppCompatActivity {
         alphaAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                ivBack.setVisibility(View.INVISIBLE);
+//                ivBack.setVisibility(View.INVISIBLE);
             }
 
             @Override
